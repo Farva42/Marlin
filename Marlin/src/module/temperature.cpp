@@ -1036,7 +1036,6 @@ volatile bool Temperature::raw_temps_ready = false;
         next_test_ms += test_interval_ms;
       }
     }
-    wait_for_heatup = false;
 
     #if ENABLED(MPC_AUTOTUNE_DEBUG)
       SERIAL_ECHOLNPGM("MPC_autotuner::measure_ambient_temp() Completed");
