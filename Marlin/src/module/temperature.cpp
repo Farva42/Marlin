@@ -1034,7 +1034,6 @@ volatile bool Temperature::raw_temps_ready = false;
         next_test_ms += 10000UL;
       }
     }
-    wait_for_heatup = false;
 
     #if HAS_FAN
       set_fan_speed(TERN(SINGLEFAN, 0, e), 0);
