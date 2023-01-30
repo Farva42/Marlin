@@ -70,7 +70,9 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_CREALITY_V422
 #endif
-
+// Defines to clear warnings
+#define NO_CREALITY_422_DRIVER_WARNING
+#define LCD_SERIAL_PORT 3
 /**
  * Select the serial port on the board to use for communication with the host.
  * This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -1379,7 +1381,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
