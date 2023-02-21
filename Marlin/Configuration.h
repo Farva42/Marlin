@@ -70,6 +70,7 @@
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
 #endif
+#define DIAG_JUMPERS_REMOVED
 
 /**
  * Select the serial port on the board to use for communication with the host.
@@ -2422,12 +2423,12 @@
 #define PREHEAT_3_LABEL       "PETG"
 #define PREHEAT_3_TEMP_HOTEND 240
 #define PREHEAT_3_TEMP_BED     70
-#define PREHEAT_3_FAN_SPEED   255 // Value from 0 to 255																	 
+#define PREHEAT_3_FAN_SPEED   255 // Value from 0 to 255
 
 #define PREHEAT_4_LABEL       "PLA+"
 #define PREHEAT_4_TEMP_HOTEND 220
 #define PREHEAT_4_TEMP_BED     65
-#define PREHEAT_4_FAN_SPEED   255 // Value from 0 to 255																	 
+#define PREHEAT_4_FAN_SPEED   255 // Value from 0 to 255
 
 /**
  * Nozzle Park
