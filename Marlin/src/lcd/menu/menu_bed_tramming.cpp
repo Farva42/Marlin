@@ -374,6 +374,7 @@ void _lcd_bed_tramming_homing() {
       if (!probe.deploy() && !tramming_done) _lcd_bed_tramming_homing();
     });
   }
+}
 
 #endif // NEEDS_PROBE_DEPLOY
 
