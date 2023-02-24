@@ -92,6 +92,7 @@ constexpr xy_pos_t lf { (X_MIN_BED) + inset_lfrb[0], (Y_MIN_BED) + inset_lfrb[1]
                    rb { (X_MAX_BED) - inset_lfrb[2], (Y_MAX_BED) - inset_lfrb[3] };
 
 static int8_t bed_corner;
+xy_pos_t corner_point;
 
 /**
  * Move to the next corner coordinates
@@ -373,6 +374,7 @@ void _lcd_bed_tramming_homing() {
       if (!probe.deploy() && !tramming_done) _lcd_bed_tramming_homing();
     });
   }
+}
 
 #endif // NEEDS_PROBE_DEPLOY
 
