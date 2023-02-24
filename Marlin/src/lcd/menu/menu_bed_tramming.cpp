@@ -135,7 +135,6 @@ static void _lcd_goto_next_corner() {
     // Four-Corner Bed Tramming with optional center
     if (TERN0(BED_TRAMMING_INCLUDE_CENTER, bed_corner == center_index)) {
       corner_point.set(X_CENTER, Y_CENTER);
-      //TERN_(BED_TRAMMING_USE_PROBE, good_points--); // Decrement to allow one additional probe point
     }
     else {
       switch (lco[bed_corner]) {
