@@ -254,7 +254,7 @@ static void _lcd_goto_next_corner() {
 
       return true; // probe triggered
     }
-    do_blocking_move_to_z(last_z); // go back to tolerance middle point before raise
+    line_to_z(last_z); // go back to tolerance middle point before raise
     return false; // probe not triggered
   }
 
