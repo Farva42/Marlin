@@ -240,7 +240,9 @@ static void _lcd_goto_next_corner() {
       endstops.hit_on_purpose();
       set_current_from_steppers_for_axis(Z_AXIS);
       sync_plan_position();
+
       TERN_(BLTOUCH, if (!bltouch.high_speed_mode) bltouch.stow()); // Stow in LOW SPEED MODE on every trigger
+
       // Triggered outside tolerance range?
       if (ABS(current_position.z - last_z) > BED_TRAMMING_PROBE_TOLERANCE) {
         last_z = current_position.z; // Above tolerance. Set a new Z for subsequent corners.
@@ -330,6 +332,7 @@ void _lcd_bed_tramming_homing() {
     leveling_was_active = planner.leveling_active;
     set_bed_leveling_enabled(false);
   #endif
+
   #if ENABLED(BED_TRAMMING_USE_PROBE)
 
     if (!tramming_done) _lcd_test_corners(); // May set tramming_done
@@ -359,7 +362,8 @@ void _lcd_bed_tramming_homing() {
     });
     ui.set_selection(true);
     _lcd_goto_next_corner();
-  #endif
+
+  #endif // !BED_TRAMMING_USE_PROBE
 }
 
 #if NEEDS_PROBE_DEPLOY
@@ -371,7 +375,6 @@ void _lcd_bed_tramming_homing() {
       if (!probe.deploy() && !tramming_done) _lcd_bed_tramming_homing();
     });
   }
-}
 
 #endif // NEEDS_PROBE_DEPLOY
 
