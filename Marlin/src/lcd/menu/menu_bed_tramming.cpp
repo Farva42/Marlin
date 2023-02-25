@@ -217,7 +217,6 @@ static void _lcd_goto_next_corner() {
     MenuItem_confirm::select_screen(
         GET_TEXT_F(TERN(HAS_LEVELING, MSG_BUTTON_LEVEL, MSG_BUTTON_DONE)),
         TERN(HAS_LEVELING, GET_TEXT_F(MSG_BUTTON_DONE), nullptr)
-      , []{ TERN(HAS_LEVELING, []{queue.inject(F("G29N")); corner_probing_done = true;}, queue.inject(FPSTR(G28_STR))); ui.goto_previous_screen_no_defer();}
       , []{
           tramming_done = true;
           queue.inject(TERN(HAS_LEVELING, F("G29N"), FPSTR(G28_STR)));
