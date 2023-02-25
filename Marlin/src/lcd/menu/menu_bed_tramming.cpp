@@ -396,6 +396,7 @@ void deploy_probe() {
   });
 
 }
+
 #endif
 
 void _lcd_level_bed_corners() {
@@ -408,7 +409,7 @@ void _lcd_level_bed_corners() {
   ui.goto_screen([]{
     _lcd_draw_homing();
     if (all_axes_homed())
-      #if HAS_STOWABLE_PROBE
+      #if HAS_STOWABLE_PROBE && DISABLED(BLTOUCH)
       deploy_probe();
       #else
       _lcd_level_bed_corners_homing();
