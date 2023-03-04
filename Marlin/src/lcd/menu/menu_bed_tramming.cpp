@@ -215,8 +215,8 @@ static void _lcd_goto_next_corner() {
   void _lcd_draw_level_prompt() {
     if (!ui.should_draw()) return;
     MenuItem_confirm::select_screen(
-        GET_TEXT_F(TERN(HAS_LEVELING, MSG_BUTTON_LEVEL, MSG_BUTTON_DONE))
-      , TERN(HAS_LEVELING, GET_TEXT_F(MSG_BUTTON_BACK), nullptr)
+        GET_TEXT_F(TERN(HAS_LEVELING, MSG_BUTTON_LEVEL, MSG_BUTTON_DONE)),
+        TERN(HAS_LEVELING, GET_TEXT_F(MSG_BUTTON_DONE), nullptr)
       , []{
           tramming_done = true;
           queue.inject(TERN(HAS_LEVELING, F("G29N"), FPSTR(G28_STR)));
