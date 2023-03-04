@@ -117,7 +117,7 @@ public:
         }
       #endif
 
-    #else // !IS_KINEMATIC
+    #else
 
       static bool obstacle_check(const_float_t rx, const_float_t ry) {
         #if ENABLED(AVOID_OBSTACLES)
@@ -169,7 +169,7 @@ public:
         }
       }
 
-    #endif // !IS_KINEMATIC
+    #endif
 
     static float probe_at_point(
       const_float_t      rx,
@@ -196,15 +196,15 @@ public:
       return probe_at_point(pos.x, pos.y, raise_after, verbose_level, probe_relative, sanity_check, z_min_point, z_clearance, raise_after_is_rel);
     }
 
-  #else // !HAS_BED_PROBE
+  #else
 
     static constexpr xyz_pos_t offset = xyz_pos_t(NUM_AXIS_ARRAY_1(0)); // See #16767
 
-    static bool set_deployed(const bool, const bool=false) { return false; }
+    static bool set_deployed(const bool, const bool no_mem = false) { return false; }
 
     static bool can_reach(const_float_t rx, const_float_t ry, const bool=true) { return position_is_reachable(TERN_(HAS_X_AXIS, rx) OPTARG(HAS_Y_AXIS, ry)); }
 
-  #endif // !HAS_BED_PROBE
+  #endif
 
   static void use_probing_tool(const bool=true) IF_DISABLED(DO_TOOLCHANGE_FOR_PROBING, {});
 
