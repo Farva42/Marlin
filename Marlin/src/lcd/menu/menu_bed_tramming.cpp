@@ -329,7 +329,7 @@ void _lcd_bed_tramming_homing() {
   if (!all_axes_homed() && TERN1(NEEDS_PROBE_DEPLOY, probe.deploy())) return;
 
   #if HAS_LEVELING // Disable leveling so the planner won't mess with us
-    menu_leveling_was_active = planner.leveling_active;
+    leveling_was_active = planner.leveling_active;
     set_bed_leveling_enabled(false);
   #endif
 
@@ -353,7 +353,7 @@ void _lcd_bed_tramming_homing() {
         , _lcd_goto_next_corner
         , []{
             line_to_z(BED_TRAMMING_Z_HOP); // Raise Z off the bed when done
-            TERN_(HAS_LEVELING, set_bed_leveling_enabled(menu_leveling_was_active));
+            TERN_(HAS_LEVELING, set_bed_leveling_enabled(leveling_was_active));
             ui.goto_previous_screen_no_defer();
           }
         , GET_TEXT_F(TERN(BED_TRAMMING_INCLUDE_CENTER, MSG_LEVEL_BED_NEXT_POINT, MSG_NEXT_CORNER))

@@ -36,7 +36,7 @@
 
 #if HAS_LEVELING
   #include "../../../feature/bedlevel/bedlevel.h"
-  bool mks_leveling_was_active;
+  bool leveling_was_active;
 #endif
 
 extern lv_group_t *g;
@@ -149,8 +149,8 @@ void lv_draw_z_offset_wizard() {
 
   // Store Bed-Leveling-State and disable
   #if HAS_LEVELING
-    mks_leveling_was_active = planner.leveling_active;
-    set_bed_leveling_enabled(mks_leveling_was_active);
+    leveling_was_active = planner.leveling_active;
+    set_bed_leveling_enabled(leveling_was_active);
   #endif
 
   queue.inject_P(PSTR("G28"));
