@@ -536,7 +536,7 @@ bool Probe::set_deployed(const bool deploy, const bool no_return/*=false*/) {
     }
   #endif
 
-  const xy_pos_t old_xy = current_position; //remember location before call
+  const xy_pos_t old_xy = current_position;
 
   #if ENABLED(PROBE_TRIGGERED_WHEN_STOWED_TEST)
 

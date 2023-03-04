@@ -92,7 +92,6 @@ constexpr xy_pos_t lf { (X_MIN_BED) + inset_lfrb[0], (Y_MIN_BED) + inset_lfrb[1]
                    rb { (X_MAX_BED) - inset_lfrb[2], (Y_MAX_BED) - inset_lfrb[3] };
 
 static int8_t bed_corner;
-xy_pos_t corner_point;
 
 /**
  * Move to the next corner coordinates
@@ -126,7 +125,7 @@ static void _lcd_goto_next_corner() {
 
       #if ENABLED(BED_TRAMMING_INCLUDE_CENTER)
         case 3:
-          corner_point.set(X_CENTER, Y_CENTER);
+          current_position.set(X_CENTER, Y_CENTER);
           break;
       #endif
     }
@@ -134,8 +133,8 @@ static void _lcd_goto_next_corner() {
   else {
     // Four-Corner Bed Tramming with optional center
     if (TERN0(BED_TRAMMING_INCLUDE_CENTER, bed_corner == center_index)) {
-      corner_point.set(X_CENTER, Y_CENTER);
-      //TERN_(BED_TRAMMING_USE_PROBE, good_points--); // Decrement to allow one additional probe point
+      current_position.set(X_CENTER, Y_CENTER);
+      TERN_(BED_TRAMMING_USE_PROBE, good_points--); // Decrement to allow one additional probe point
     }
     else {
       switch (lco[bed_corner]) {
