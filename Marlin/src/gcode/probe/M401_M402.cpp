@@ -38,8 +38,6 @@
  * With BLTOUCH_HS_MODE:
  *  H       Report the current BLTouch HS mode state and exit
  *  S<bool> Set High Speed (HS) Mode and exit without deploy
- *
- * N<bool> True no return to prior location. Default is false
  */
 void GcodeSuite::M401() {
   #if HAS_BLTOUCH_HS_MODE
