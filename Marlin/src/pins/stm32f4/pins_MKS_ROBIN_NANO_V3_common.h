@@ -146,7 +146,6 @@
 //
 // Misc. Functions
 //
-#if HAS_TFT_LVGL_UI
   #ifndef FIL_RUNOUT_PIN
     #define FIL_RUNOUT_PIN                  PA4   // MT_DET_1
   #endif
@@ -156,7 +155,6 @@
   #ifndef FIL_RUNOUT_STATE
     #define FIL_RUNOUT_STATE                LOW
   #endif
-#endif
 
 #ifndef POWER_LOSS_PIN
   #define POWER_LOSS_PIN                    PA13  // PW_DET
