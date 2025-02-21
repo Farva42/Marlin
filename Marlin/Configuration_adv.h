@@ -1096,7 +1096,7 @@
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define from 3 to 9 points to probe.
-  #define TRAMMING_POINT_XY { {  30, 30 }, { 180,  30 }, { 180, 180 }, { 30, 180 } }
+  #define TRAMMING_POINT_XY { {  34, 35 }, { 244,  35 }, { 244, 215 }, { 34, 215 } }
 
   // Define position names for probe points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
@@ -1517,7 +1517,7 @@
      * Use a height slightly above the estimated nozzle-to-probe Z offset.
      * For example, with an offset of -5, consider a starting height of -4.
      */
-    #define PROBE_OFFSET_WIZARD_START_Z -4
+    #define PROBE_OFFSET_WIZARD_START_Z -1
 
     // Set a convenient position to do the calibration (probing point and nozzle/bed-distance)
     #define PROBE_OFFSET_WIZARD_XY_POS { X_CENTER, Y_CENTER }
@@ -4279,7 +4279,7 @@
  */
 #define MECHANICAL_GANTRY_CALIBRATION
 #if ENABLED(MECHANICAL_GANTRY_CALIBRATION)
-  #define GANTRY_CALIBRATION_CURRENT 400              // Default calibration current in ma
+  #define GANTRY_CALIBRATION_CURRENT 150              // Default calibration current in ma
   #define GANTRY_CALIBRATION_EXTRA_HEIGHT 15          // Extra distance in mm past Z_###_POS to move
   #define GANTRY_CALIBRATION_FEEDRATE 500             // Feedrate for correction move
   //#define GANTRY_CALIBRATION_TO_MIN                 // Enable to calibrate Z in the MIN direction
